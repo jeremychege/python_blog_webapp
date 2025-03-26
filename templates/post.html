@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <small>{{ post.timestamp.strftime('%Y-%m-%d') }}</small>
+    <br>
+    <a href="{{ url_for('edit_post', post_id=post.id) }}" class="btn btn-warning">Edit</a>
+    <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post" style="display:inline;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}
